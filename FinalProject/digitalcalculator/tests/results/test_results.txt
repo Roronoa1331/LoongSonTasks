@@ -1,0 +1,67 @@
+Digital Calculator - automated test results
+Executable : C:\Users\testriad\Desktop\LoongSonExamples\DigitalCalculator\tests\..\build\calculator.exe 
+Date       : 2026-11-17 16:31:14
+Result     : 20 passed, 0 failed, 20 total
+
+ID    Description                    Result   Input / Expected / Actual
+--------------------------------------------------------------------------------------------------------------
+T01   Addition 10 + 5                PASS     1 , 10 , 5 , 5
+                                              expected: Result: 15
+                                              actual  : Result: 15
+T02   Subtraction 10 - 5             PASS     2 , 10 , 5 , 5
+                                              expected: Result: 5
+                                              actual  : Result: 5
+T03   Multiplication 10 * 5          PASS     3 , 10 , 5 , 5
+                                              expected: Result: 50
+                                              actual  : Result: 50
+T04   Division 10 / 5                PASS     4 , 10 , 5 , 5
+                                              expected: Result: 2
+                                              actual  : Result: 2
+T05   Decimal addition 2.5 + 1.5     PASS     1 , 2.5 , 1.5 , 5
+                                              expected: Result: 4
+                                              actual  : Result: 4
+T06   Negative numbers -10 + 5       PASS     1 , -10 , 5 , 5
+                                              expected: Result: -5
+                                              actual  : Result: -5
+T07   Division by zero 10 / 0        PASS     4 , 10 , 0 , 5
+                                              expected: Error: division by zero is not allowed.
+                                              actual  : Error: division by zero is not allowed.
+T08   Invalid menu option 9          PASS     9 , 5
+                                              expected: Invalid selection: please enter a number from 1 to 5.
+                                              actual  : Invalid selection: please enter a number from 1 to 5.
+T09   Invalid numeric input abc      PASS     1 , abc , 5
+                                              expected: Error: invalid numeric input.
+                                              actual  : Error: invalid numeric input.
+T10   Exit with option 5             PASS     5
+                                              expected: Goodbye.
+                                              actual  : Goodbye.
+T11   Decimal division 1 / 4         PASS     4 , 1 , 4 , 5
+                                              expected: Result: 0.25
+                                              actual  : Result: 0.25
+T12   Negative multiplication        PASS     3 , -3.5 , 2 , 5
+                                              expected: Result: -7
+                                              actual  : Result: -7
+T13   Four calculations, one run     PASS     1 , 10 , 5 , 2 , 10 , 5 , 3 , 10 , 5 , 4 , 10 , 5 , 5
+                                              expected: Result: 15 / Result: 5 / Result: 50 / Result: 2
+                                              actual  : Result: 15 | Result: 5 | Result: 50 | Result: 2
+T14   Menu option 0                  PASS     0 , 5
+                                              expected: Invalid selection: please enter a number from 1 to 5.
+                                              actual  : Invalid selection: please enter a number from 1 to 5.
+T15   Trailing garbage 12abc         PASS     1 , 12abc , 5
+                                              expected: Error: invalid numeric input.
+                                              actual  : Error: invalid numeric input.
+T16   Repeating decimal 10 / 3       PASS     4 , 10 , 3 , 5
+                                              expected: Result: 3.333333333
+                                              actual  : Result: 3.333333333
+T17   Empty menu input               PASS      , 5
+                                              expected: Invalid selection: please enter a number from 1 to 5.
+                                              actual  : Invalid selection: please enter a number from 1 to 5.
+T18   End of input (no option 5)     PASS     1 , 10 , 5
+                                              expected: Result: 15 / End of input reached.
+                                              actual  : Result: 15 | End of input reached.
+T19   Negative zero: 0 * -3          PASS     3 , 0 , -3 , 5
+                                              expected: Result: 0
+                                              actual  : Result: 0
+T20   Overlong numeric input         PASS     1 , 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 , 5
+                                              expected: Error: invalid numeric input.
+                                              actual  : Error: invalid numeric input.

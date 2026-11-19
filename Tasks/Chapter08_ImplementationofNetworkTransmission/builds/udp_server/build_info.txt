@@ -1,0 +1,9 @@
+experiment       : udp_server
+built at         : 2026-11-17T10:49:07
+duration         : 130 s
+toolchain        : E:\LoongIDE\mips-2015.05\bin (mips-sde-elf-gcc)
+result           : SUCCESS
+elf              : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\builds\udp_server\udp_server.exe (1340776 bytes)
+binary           : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\builds\udp_server\udp_server.bin (568848 bytes)
+bin sha256       : CD91F3DF2981D5C0C1B584080403D29F8DED363679AFB68231074CA9261B9F42
+build log        : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\results\logs\build_udp_server.log

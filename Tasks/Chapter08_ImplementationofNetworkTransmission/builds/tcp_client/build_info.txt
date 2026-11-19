@@ -1,0 +1,9 @@
+experiment       : tcp_client
+built at         : 2026-11-17T10:46:58
+duration         : 124 s
+toolchain        : E:\LoongIDE\mips-2015.05\bin (mips-sde-elf-gcc)
+result           : SUCCESS
+elf              : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\builds\tcp_client\tcp_client.exe (1341240 bytes)
+binary           : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\builds\tcp_client\tcp_client.bin (569288 bytes)
+bin sha256       : 245D5065325B089A808163CEC6277CAD4C3C484346B6F94FEC0060D724136C5A
+build log        : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\results\logs\build_tcp_client.log

@@ -1,0 +1,14 @@
+Console screen-buffer capture - 2026-11-17 14:24:41
+Program: C:\Users\testriad\Desktop\LoongSonExamples\DigitalCalculator\build\calculator.exe
+Host   : ROROMA, Windows console (conhost), en-US
+
+01_main_menu.txt                 12 lines  main menu
+02_addition.txt                  26 lines  10 + 5
+03_subtraction.txt               26 lines  10 - 5
+04_multiplication.txt            26 lines  10 * 5
+05_division.txt                  26 lines  10 / 5
+06_division_by_zero.txt          26 lines  10 / 0
+07_invalid_menu_option.txt       24 lines  invalid menu option 9
+08_invalid_numeric_input.txt     25 lines  invalid number abc
+09_decimal_calculation.txt       26 lines  2.5 + 1.5
+10_exit.txt                      15 lines  exit with option 5

@@ -1,0 +1,5 @@
+Experiment,Protocol,Board_Role,PC_Role,Board_IP,PC_IP,Port,Build_Status,Execution_Status,Communication_Status,Messages_Sent,Responses_Received,Successful_Exchanges,Screenshot_Files,Notes
+A_tcp_server,TCP,TCP server,TCP client,192.168.1.123,192.168.1.111,9060,SUCCESS,NOT TESTED,NOT TESTED,0,0,0,,Built 2026-11-17. Hardware attempt same day blocked: UART5 console cable not connected; PC address needs elevation. See results/logs/hardware_session_2026-11-17.md
+B_tcp_client,TCP,TCP client,TCP server,192.168.1.123,192.168.1.111,9061,SUCCESS,NOT TESTED,NOT TESTED,0,0,0,,Built 2026-11-17. Blocked by the same two environment issues; board sends 5 cycles then stops
+C_udp_server,UDP,UDP echo endpoint,UDP sender,192.168.1.123,192.168.1.111,9062,SUCCESS,NOT TESTED,NOT TESTED,0,0,0,,Built 2026-11-17. Blocked by the same two environment issues; manual 8.2.14 prose says TCP Server but its Figure 8.9 shows UDP - use UDP
+D_udp_client,UDP,UDP sender,UDP receiver,192.168.1.123,192.168.1.111,9063,SUCCESS,NOT TESTED,NOT TESTED,0,0,0,,Built 2026-11-17. Blocked by the same two environment issues; NetAssist must listen on 9063 before the board boots

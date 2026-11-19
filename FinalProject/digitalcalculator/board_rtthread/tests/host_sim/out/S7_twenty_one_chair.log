@@ -1,0 +1,97 @@
+﻿=== HOST SIMULATION: customer_num=20, waiting chairs=1 ===
+
+
+
+Welcome to RT-Thread.
+
+
+
+create semaphore barber done.  The value of barber = 0
+create semaphore customers done. The value of customers = 0
+create mutex is sucessful. 
+barber thread  startup. 
+customers 1 thread  startup. 
+customers 2 thread  startup. 
+customers 3 thread  startup. 
+customers 4 thread  startup. 
+customers 5 thread  startup. 
+customers 6 thread  startup. 
+customers 7 thread  startup. 
+customers 8 thread  startup. 
+customers 9 thread  startup. 
+customers 10 thread  startup. 
+customers 11 thread  startup. 
+customers 12 thread  startup. 
+customers 13 thread  startup. 
+customers 14 thread  startup. 
+customers 15 thread  startup. 
+customers 16 thread  startup. 
+customers 17 thread  startup. 
+customers 18 thread  startup. 
+customers 19 thread  startup. 
+customers 20 thread  startup. 
+freeseats=0
+customers 1 is waitting to cut hair.
+customers 2 leave.
+customers 3 leave.
+customers 4 leave.
+customers 5 leave.
+barber find customer 0 .
+barber begin to cut hair.
+freeseats=0
+customers 6 is waitting to cut hair.
+customers 7 leave.
+customers 8 leave.
+customers 9 leave.
+customers 10 leave.
+customers 11 leave.
+customers 12 leave.
+customers 13 leave.
+customers 14 leave.
+customers 15 leave.
+customers 16 leave.
+customers 17 leave.
+customers 18 leave.
+customers 19 leave.
+customers 20 leave.
+barber finish cut hair.
+barber find customer 1 .
+barber begin to cut hair.
+barber finish cut hair.
+
+
+==== HOST SIMULATION REPORT ====
+customer threads requested : 20
+waiting chairs             : 1
+simulated time             : 130 ms
+context switches           : 53
+livelock (budget exceeded) : no
+
+threads:
+  main      prio 10  finished
+  barber    prio 10  semaphore 'cust_sem'
+  customer  prio  5  finished
+  customer  prio  6  finished
+  customer  prio  7  finished
+  customer  prio  8  finished
+  customer  prio  9  finished
+  customer  prio 10  finished
+  customer  prio 11  finished
+  customer  prio 12  finished
+  customer  prio 13  finished
+  customer  prio 14  finished
+  customer  prio 15  finished
+  customer  prio 16  finished
+  customer  prio 17  finished
+  customer  prio 18  finished
+  customer  prio 19  finished
+  customer  prio 20  finished
+  customer  prio 21  finished
+  customer  prio 22  finished
+  customer  prio 23  finished
+  customer  prio 24  finished
+
+threads still blocked      : 1
+
+VERDICT: PASS
+

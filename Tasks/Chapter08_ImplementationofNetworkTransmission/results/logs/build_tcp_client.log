@@ -1,0 +1,664 @@
+=== Chapter 08 build: tcp_client ===
+started          : 2026-11-17T10:44:54
+experiment macro : TEST_TCP_CLIENT = 1
+--- lwip_test.h macro state ---
+#define TEST_TCP_SERVER         0
+#define TEST_TCP_CLIENT         1
+#define TEST_UDP_SERVER         0
+#define TEST_UDP_CLIENT         0
+--- compiler output ---
+make.exe": Entering directory `/c/Users/testriad/Desktop/LoongSonExamples/Chapter08_ImplementationofNetworkTransmission/builds'
+AS  ../RTT4/port/start.S
+AS  ../RTT4/port/cache.S
+AS  ../RTT4/port/context.S
+AS  ../RTT4/port/irq_s.S
+AS  ../RTT4/port/mips_timer.S
+AS  ../RTT4/port/tlb.S
+CC  ../RTT4/bsp-ls1x/drv_can.c
+CC  ../RTT4/bsp-ls1x/drv_fb.c
+CC  ../RTT4/bsp-ls1x/drv_nand.c
+CC  ../RTT4/bsp-ls1x/drv_pwm.c
+CC  ../RTT4/bsp-ls1x/drv_uart.c
+CC  ../RTT4/bsp-ls1x/i2c/drv_ads1015.c
+CC  ../RTT4/bsp-ls1x/i2c/drv_mcp4725.c
+CC  ../RTT4/bsp-ls1x/i2c/drv_pca9557.c
+CC  ../RTT4/bsp-ls1x/i2c/drv_rx8010.c
+CC  ../RTT4/bsp-ls1x/rt_ls1x_drv_init.c
+CC  ../RTT4/bsp-ls1x/spi/drv_w25x40.c
+CC  ../RTT4/bsp-ls1x/spi/drv_xpt2046.c
+CC  ../RTT4/components/dfs/src/dfs.c
+CC  ../RTT4/components/dfs/src/dfs_file.c
+CC  ../RTT4/components/dfs/src/dfs_fs.c
+CC  ../RTT4/components/dfs/src/dfs_posix.c
+CC  ../RTT4/components/dfs/src/poll.c
+CC  ../RTT4/components/dfs/src/select.c
+In file included from ../RTT4/components/dfs/src/select.c:15:0:
+../RTT4/components/dfs/include/dfs_select.h:19:83: warning: 'struct timeval' declared inside parameter list
+ int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
+                                                                                   ^
+../RTT4/components/dfs/include/dfs_select.h:19:83: warning: its scope is only this definition or declaration, which is probably not what you want
+CC  ../RTT4/components/drivers/src/completion.c
+CC  ../RTT4/components/drivers/src/dataqueue.c
+CC  ../RTT4/components/drivers/src/pipe.c
+CC  ../RTT4/components/drivers/src/ringblk_buf.c
+CC  ../RTT4/components/drivers/src/ringbuffer.c
+CC  ../RTT4/components/drivers/src/waitqueue.c
+CC  ../RTT4/components/drivers/src/workqueue.c
+CC  ../RTT4/components/finsh/cmd.c
+CC  ../RTT4/components/finsh/finsh_compiler.c
+CC  ../RTT4/components/finsh/finsh_error.c
+CC  ../RTT4/components/finsh/finsh_heap.c
+CC  ../RTT4/components/finsh/finsh_init.c
+CC  ../RTT4/components/finsh/finsh_node.c
+CC  ../RTT4/components/finsh/finsh_ops.c
+CC  ../RTT4/components/finsh/finsh_parser.c
+CC  ../RTT4/components/finsh/finsh_token.c
+CC  ../RTT4/components/finsh/finsh_var.c
+CC  ../RTT4/components/finsh/finsh_vm.c
+CC  ../RTT4/components/finsh/msh.c
+CC  ../RTT4/components/finsh/msh_file.c
+CC  ../RTT4/components/finsh/shell.c
+../RTT4/components/finsh/shell.c: In function 'finsh_thread_entry':
+../RTT4/components/finsh/shell.c:551:9: warning: implicit declaration of function 'rt_thread_sleep' [-Wimplicit-function-declaration]
+         rt_thread_sleep(100);           /* �ó� CPU ʱ�� FIXME 2021.4.15 Bian */
+         ^
+CC  ../RTT4/components/finsh/symbol.c
+CC  ../RTT4/components/libc/compilers/newlib/libc.c
+CC  ../RTT4/components/libc/compilers/newlib/libc_syms.c
+CC  ../RTT4/components/libc/compilers/newlib/stdio.c
+CC  ../RTT4/components/libc/compilers/newlib/syscalls.c
+CC  ../RTT4/components/libc/compilers/newlib/time.c
+CC  ../RTT4/components/libc/time/clock_time.c
+CC  ../RTT4/port/bsp_start.c
+CC  ../RTT4/port/exception.c
+CC  ../RTT4/port/inittlb.c
+CC  ../RTT4/port/irq.c
+CC  ../RTT4/port/stack.c
+CC  ../RTT4/port/tick.c
+CC  ../RTT4/src/clock.c
+CC  ../RTT4/src/components.c
+CC  ../RTT4/src/cpu.c
+CC  ../RTT4/src/device.c
+CC  ../RTT4/src/idle.c
+CC  ../RTT4/src/ipc.c
+CC  ../RTT4/src/irq.c
+CC  ../RTT4/src/kservice.c
+CC  ../RTT4/src/mem.c
+CC  ../RTT4/src/memheap.c
+CC  ../RTT4/src/mempool.c
+CC  ../RTT4/src/object.c
+CC  ../RTT4/src/scheduler.c
+CC  ../RTT4/src/signal.c
+CC  ../RTT4/src/slab.c
+CC  ../RTT4/src/thread.c
+CC  ../RTT4/src/timer.c
+CC  ../ls1x-drv/ac97/ls1x_ac97.c
+CC  ../ls1x-drv/can/ls1x_can.c
+CC  ../ls1x-drv/console/console.c
+CC  ../ls1x-drv/fb/font/font_desc.c
+CC  ../ls1x-drv/fb/ls1x_fb.c
+CC  ../ls1x-drv/fb/ls1x_fb_utils.c
+CC  ../ls1x-drv/gmac/ls1x_gmac.c
+../ls1x-drv/gmac/ls1x_gmac.c:522:12: warning: 'MII_check_link_change' defined but not used [-Wunused-function]
+ static int MII_check_link_change(GMAC_t *pMAC)
+            ^
+CC  ../ls1x-drv/gpio/ls1x_gpio.c
+CC  ../ls1x-drv/i2c/ads1015/ads1015.c
+CC  ../ls1x-drv/i2c/gp7101/gp7101.c
+CC  ../ls1x-drv/i2c/gt1151/gt1151.c
+CC  ../ls1x-drv/i2c/gt1151/touch.c
+CC  ../ls1x-drv/i2c/ls1x_i2c_bus.c
+CC  ../ls1x-drv/i2c/mcp4725/mcp4725.c
+CC  ../ls1x-drv/i2c/pca9557/pca9557.c
+CC  ../ls1x-drv/i2c/rx8010/rx8010.c
+CC  ../ls1x-drv/ls1x_drv_init.c
+CC  ../ls1x-drv/nand/ls1x_nand.c
+CC  ../ls1x-drv/pwm/ls1x_pwm.c
+CC  ../ls1x-drv/rtc/ls1x_rtc.c
+CC  ../ls1x-drv/spi/ls1x_spi_bus.c
+CC  ../ls1x-drv/spi/w25x40/w25x40.c
+CC  ../ls1x-drv/spi/xpt2046/touch_utils.c
+CC  ../ls1x-drv/spi/xpt2046/xpt2046.c
+CC  ../ls1x-drv/uart/ns16550.c
+../ls1x-drv/uart/ns16550.c: In function 'NS16550_set_attributes':
+../ls1x-drv/uart/ns16550.c:371:29: warning: variable 'trash' set but not used [-Wunused-but-set-variable]
+     unsigned char lineCtrl, trash;
+                             ^
+../ls1x-drv/uart/ns16550.c: In function 'NS16550_init':
+../ls1x-drv/uart/ns16550.c:446:19: warning: variable 'trash' set but not used [-Wunused-but-set-variable]
+     unsigned char trash;
+                   ^
+../ls1x-drv/uart/ns16550.c: At top level:
+../ls1x-drv/uart/ns16550.c:315:12: warning: 'NS16550_assert_RTS' defined but not used [-Wunused-function]
+ static int NS16550_assert_RTS(NS16550_t *pUART)
+            ^
+../ls1x-drv/uart/ns16550.c:327:12: warning: 'NS16550_negate_RTS' defined but not used [-Wunused-function]
+ static int NS16550_negate_RTS(NS16550_t *pUART)
+            ^
+CC  ../ls1x-drv/useful/aligned_malloc.c
+CC  ../ls1x-drv/useful/fls.c
+CC  ../ls1x-drv/useful/print_hex.c
+CC  ../ls1x-drv/useful/qsort.c
+CC  ../ls1x-drv/watchdog/ls1x_watchdog.c
+CC  ../lwIP-1.4.1/api/api_lib.c
+CC  ../lwIP-1.4.1/api/api_msg.c
+CC  ../lwIP-1.4.1/api/err.c
+CC  ../lwIP-1.4.1/api/netbuf.c
+CC  ../lwIP-1.4.1/api/netdb.c
+CC  ../lwIP-1.4.1/api/netifapi.c
+CC  ../lwIP-1.4.1/api/sockets.c
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../lwIP-1.4.1/include/lwip/api.h:42,
+                 from ../lwIP-1.4.1/api/sockets.c:46:
+../RTT4/include/libc/libc_ioctl.h:24:0: warning: "_IO" redefined
+ #define _IO(a,b)    _IOC(_IOC_NONE,(a),(b),0)
+ ^
+In file included from ../lwIP-1.4.1/api/sockets.c:45:0:
+../lwIP-1.4.1/include/lwip/sockets.h:244:0: note: this is the location of the previous definition
+ #define _IO(x,y)        (IOC_VOID|((x)<<8)|(y))
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../lwIP-1.4.1/include/lwip/api.h:42,
+                 from ../lwIP-1.4.1/api/sockets.c:46:
+../RTT4/include/libc/libc_ioctl.h:25:0: warning: "_IOW" redefined
+ #define _IOW(a,b,c) _IOC(_IOC_WRITE,(a),(b),sizeof(c))
+ ^
+In file included from ../lwIP-1.4.1/api/sockets.c:45:0:
+../lwIP-1.4.1/include/lwip/sockets.h:248:0: note: this is the location of the previous definition
+ #define _IOW(x,y,t)     (IOC_IN|(((long)sizeof(t)&IOCPARM_MASK)<<16)|((x)<<8)|(y))
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../lwIP-1.4.1/include/lwip/api.h:42,
+                 from ../lwIP-1.4.1/api/sockets.c:46:
+../RTT4/include/libc/libc_ioctl.h:26:0: warning: "_IOR" redefined
+ #define _IOR(a,b,c) _IOC(_IOC_READ,(a),(b),sizeof(c))
+ ^
+In file included from ../lwIP-1.4.1/api/sockets.c:45:0:
+../lwIP-1.4.1/include/lwip/sockets.h:246:0: note: this is the location of the previous definition
+ #define _IOR(x,y,t)     (IOC_OUT|(((long)sizeof(t)&IOCPARM_MASK)<<16)|((x)<<8)|(y))
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../lwIP-1.4.1/include/lwip/api.h:42,
+                 from ../lwIP-1.4.1/api/sockets.c:46:
+../RTT4/include/libc/libc_ioctl.h:29:0: warning: "FIONREAD" redefined
+ #define FIONREAD    _IOR('f', 127, int) /* get # bytes to read */
+ ^
+In file included from ../lwIP-1.4.1/api/sockets.c:45:0:
+../lwIP-1.4.1/include/lwip/sockets.h:252:0: note: this is the location of the previous definition
+ #define FIONREAD    _IOR('f', 127, unsigned long) /* get # bytes to read */
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../lwIP-1.4.1/include/lwip/api.h:42,
+                 from ../lwIP-1.4.1/api/sockets.c:46:
+../RTT4/include/libc/libc_ioctl.h:30:0: warning: "FIONBIO" redefined
+ #define FIONBIO     _IOW('f', 126, int) /* set/clear non-blocking i/o */
+ ^
+In file included from ../lwIP-1.4.1/api/sockets.c:45:0:
+../lwIP-1.4.1/include/lwip/sockets.h:255:0: note: this is the location of the previous definition
+ #define FIONBIO     _IOW('f', 126, unsigned long) /* set/clear non-blocking i/o */
+ ^
+In file included from ../lwIP-1.4.1/include/lwip/arch.h:43:0,
+                 from ../lwIP-1.4.1/include/lwip/debug.h:35,
+                 from ../lwIP-1.4.1/include/lwip/opt.h:46,
+                 from ../lwIP-1.4.1/api/sockets.c:41:
+../lwIP-1.4.1/api/sockets.c: In function 'lwip_accept':
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:214:30: warning: the comparison will always evaluate as 'true' for the address of 'naddr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr1_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:397:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &naddr);
+   ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:215:30: warning: the comparison will always evaluate as 'true' for the address of 'naddr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr2_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:397:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &naddr);
+   ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:216:30: warning: the comparison will always evaluate as 'true' for the address of 'naddr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr3_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:397:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &naddr);
+   ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:217:30: warning: the comparison will always evaluate as 'true' for the address of 'naddr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr4_16(ipaddr) : 0))
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:397:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &naddr);
+   ^
+../lwIP-1.4.1/api/sockets.c: In function 'lwip_bind':
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:214:30: warning: the comparison will always evaluate as 'true' for the address of 'local_addr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr1_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:428:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &local_addr);
+   ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:215:30: warning: the comparison will always evaluate as 'true' for the address of 'local_addr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr2_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:428:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &local_addr);
+   ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:216:30: warning: the comparison will always evaluate as 'true' for the address of 'local_addr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr3_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:428:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &local_addr);
+   ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:217:30: warning: the comparison will always evaluate as 'true' for the address of 'local_addr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr4_16(ipaddr) : 0))
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:428:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &local_addr);
+   ^
+../lwIP-1.4.1/api/sockets.c: In function 'lwip_connect':
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:214:30: warning: the comparison will always evaluate as 'true' for the address of 'remote_addr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr1_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:499:5: note: in expansion of macro 'ip_addr_debug_print'
+     ip_addr_debug_print(SOCKETS_DEBUG, &remote_addr);
+     ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:215:30: warning: the comparison will always evaluate as 'true' for the address of 'remote_addr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr2_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:499:5: note: in expansion of macro 'ip_addr_debug_print'
+     ip_addr_debug_print(SOCKETS_DEBUG, &remote_addr);
+     ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:216:30: warning: the comparison will always evaluate as 'true' for the address of 'remote_addr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr3_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:499:5: note: in expansion of macro 'ip_addr_debug_print'
+     ip_addr_debug_print(SOCKETS_DEBUG, &remote_addr);
+     ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:217:30: warning: the comparison will always evaluate as 'true' for the address of 'remote_addr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr4_16(ipaddr) : 0))
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:499:5: note: in expansion of macro 'ip_addr_debug_print'
+     ip_addr_debug_print(SOCKETS_DEBUG, &remote_addr);
+     ^
+../lwIP-1.4.1/api/sockets.c: In function 'lwip_getaddrname':
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:214:30: warning: the comparison will always evaluate as 'true' for the address of 'naddr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr1_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:1427:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &naddr);
+   ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:215:30: warning: the comparison will always evaluate as 'true' for the address of 'naddr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr2_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:1427:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &naddr);
+   ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:216:30: warning: the comparison will always evaluate as 'true' for the address of 'naddr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr3_16(ipaddr) : 0,       \
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:1427:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &naddr);
+   ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:217:30: warning: the comparison will always evaluate as 'true' for the address of 'naddr' will never be NULL [-Waddress]
+                       ipaddr != NULL ? ip4_addr4_16(ipaddr) : 0))
+                              ^
+../lwIP-1.4.1/port/include/arch/cc.h:80:49: note: in definition of macro 'LWIP_PLATFORM_DIAG'
+ #define LWIP_PLATFORM_DIAG(x)   do { rt_kprintf x; } while(0)
+                                                 ^
+../lwIP-1.4.1/include/ipv4/lwip/ip_addr.h:213:3: note: in expansion of macro 'LWIP_DEBUGF'
+   LWIP_DEBUGF(debug, ("%"U16_F".%"U16_F".%"U16_F".%"U16_F,             \
+   ^
+../lwIP-1.4.1/api/sockets.c:1427:3: note: in expansion of macro 'ip_addr_debug_print'
+   ip_addr_debug_print(SOCKETS_DEBUG, &naddr);
+   ^
+CC  ../lwIP-1.4.1/api/tcpip.c
+CC  ../lwIP-1.4.1/core/_timers.c
+CC  ../lwIP-1.4.1/core/def.c
+CC  ../lwIP-1.4.1/core/dhcp.c
+CC  ../lwIP-1.4.1/core/dns.c
+CC  ../lwIP-1.4.1/core/init.c
+CC  ../lwIP-1.4.1/core/ipv4/autoip.c
+CC  ../lwIP-1.4.1/core/ipv4/icmp.c
+CC  ../lwIP-1.4.1/core/ipv4/igmp.c
+CC  ../lwIP-1.4.1/core/ipv4/inet.c
+CC  ../lwIP-1.4.1/core/ipv4/inet_chksum.c
+CC  ../lwIP-1.4.1/core/ipv4/ip.c
+CC  ../lwIP-1.4.1/core/ipv4/ip_addr.c
+CC  ../lwIP-1.4.1/core/ipv4/ip_frag.c
+CC  ../lwIP-1.4.1/core/mem.c
+CC  ../lwIP-1.4.1/core/memp.c
+CC  ../lwIP-1.4.1/core/netif.c
+CC  ../lwIP-1.4.1/core/pbuf.c
+CC  ../lwIP-1.4.1/core/raw.c
+CC  ../lwIP-1.4.1/core/snmp/asn1_dec.c
+CC  ../lwIP-1.4.1/core/snmp/asn1_enc.c
+CC  ../lwIP-1.4.1/core/snmp/mib2.c
+CC  ../lwIP-1.4.1/core/snmp/mib_structs.c
+CC  ../lwIP-1.4.1/core/snmp/msg_in.c
+CC  ../lwIP-1.4.1/core/snmp/msg_out.c
+CC  ../lwIP-1.4.1/core/stats.c
+CC  ../lwIP-1.4.1/core/sys.c
+CC  ../lwIP-1.4.1/core/tcp.c
+CC  ../lwIP-1.4.1/core/tcp_in.c
+CC  ../lwIP-1.4.1/core/tcp_out.c
+CC  ../lwIP-1.4.1/core/udp.c
+CC  ../lwIP-1.4.1/netif/etharp.c
+CC  ../lwIP-1.4.1/netif/ethernetif.c
+CC  ../lwIP-1.4.1/netif/ppp/auth.c
+CC  ../lwIP-1.4.1/netif/ppp/chap.c
+CC  ../lwIP-1.4.1/netif/ppp/chpms.c
+CC  ../lwIP-1.4.1/netif/ppp/fsm.c
+CC  ../lwIP-1.4.1/netif/ppp/ipcp.c
+CC  ../lwIP-1.4.1/netif/ppp/lcp.c
+CC  ../lwIP-1.4.1/netif/ppp/magic.c
+CC  ../lwIP-1.4.1/netif/ppp/md5.c
+CC  ../lwIP-1.4.1/netif/ppp/pap.c
+CC  ../lwIP-1.4.1/netif/ppp/ppp.c
+CC  ../lwIP-1.4.1/netif/ppp/ppp_oe.c
+CC  ../lwIP-1.4.1/netif/ppp/randm.c
+CC  ../lwIP-1.4.1/netif/ppp/vj.c
+CC  ../lwIP-1.4.1/netif/slipif.c
+CC  ../lwIP-1.4.1/port/ls1x_ethernetif.c
+../lwIP-1.4.1/port/ls1x_ethernetif.c: In function 'ls1x_initialize_lwip':
+../lwIP-1.4.1/port/ls1x_ethernetif.c:486:9: warning: variable 'added_default' set but not used [-Wunused-but-set-variable]
+     int added_default = 0;
+         ^
+CC  ../lwIP-1.4.1/port/sys_arch.c
+../lwIP-1.4.1/port/sys_arch.c: In function 'sys_mbox_new':
+../lwIP-1.4.1/port/sys_arch.c:28:5: warning: implicit declaration of function 'rt_hw_interrupt_disable' [-Wimplicit-function-declaration]
+     RT_DEBUG_NOT_IN_INTERRUPT;
+     ^
+../lwIP-1.4.1/port/sys_arch.c:28:5: warning: implicit declaration of function 'rt_hw_interrupt_enable' [-Wimplicit-function-declaration]
+CC  ../lwip_test.c
+CC  ../main.c
+CC  ../src/install_3th_libraries.c
+CC  ../tcp_client.c
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../tcp_client.c:7:
+../RTT4/include/libc/libc_ioctl.h:24:0: warning: "_IO" redefined
+ #define _IO(a,b)    _IOC(_IOC_NONE,(a),(b),0)
+ ^
+In file included from ../tcp_client.c:5:0:
+../lwIP-1.4.1/include/lwip/sockets.h:244:0: note: this is the location of the previous definition
+ #define _IO(x,y)        (IOC_VOID|((x)<<8)|(y))
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../tcp_client.c:7:
+../RTT4/include/libc/libc_ioctl.h:25:0: warning: "_IOW" redefined
+ #define _IOW(a,b,c) _IOC(_IOC_WRITE,(a),(b),sizeof(c))
+ ^
+In file included from ../tcp_client.c:5:0:
+../lwIP-1.4.1/include/lwip/sockets.h:248:0: note: this is the location of the previous definition
+ #define _IOW(x,y,t)     (IOC_IN|(((long)sizeof(t)&IOCPARM_MASK)<<16)|((x)<<8)|(y))
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../tcp_client.c:7:
+../RTT4/include/libc/libc_ioctl.h:26:0: warning: "_IOR" redefined
+ #define _IOR(a,b,c) _IOC(_IOC_READ,(a),(b),sizeof(c))
+ ^
+In file included from ../tcp_client.c:5:0:
+../lwIP-1.4.1/include/lwip/sockets.h:246:0: note: this is the location of the previous definition
+ #define _IOR(x,y,t)     (IOC_OUT|(((long)sizeof(t)&IOCPARM_MASK)<<16)|((x)<<8)|(y))
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../tcp_client.c:7:
+../RTT4/include/libc/libc_ioctl.h:29:0: warning: "FIONREAD" redefined
+ #define FIONREAD    _IOR('f', 127, int) /* get # bytes to read */
+ ^
+In file included from ../tcp_client.c:5:0:
+../lwIP-1.4.1/include/lwip/sockets.h:252:0: note: this is the location of the previous definition
+ #define FIONREAD    _IOR('f', 127, unsigned long) /* get # bytes to read */
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../tcp_client.c:7:
+../RTT4/include/libc/libc_ioctl.h:30:0: warning: "FIONBIO" redefined
+ #define FIONBIO     _IOW('f', 126, int) /* set/clear non-blocking i/o */
+ ^
+In file included from ../tcp_client.c:5:0:
+../lwIP-1.4.1/include/lwip/sockets.h:255:0: note: this is the location of the previous definition
+ #define FIONBIO     _IOW('f', 126, unsigned long) /* set/clear non-blocking i/o */
+ ^
+CC  ../tcp_server.c
+CC  ../udp_client.c
+CC  ../udp_server.c
+CC  ../yaffs2/direct/yaffs_hweight.c
+CC  ../yaffs2/direct/yaffs_qsort.c
+CC  ../yaffs2/direct/yaffsfs.c
+CC  ../yaffs2/port/ls1x_nand_ecc.c
+CC  ../yaffs2/port/ls1x_yaffs.c
+CC  ../yaffs2/port/yaffs_osglue.c
+In file included from ../RTT4/include/rtlibc.h:20:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../yaffs2/port/yaffs_osglue.c:21:
+../RTT4/include/libc/libc_dirent.h:10:0: warning: "DT_UNKNOWN" redefined
+ #define DT_UNKNOWN           0x00
+ ^
+In file included from ../yaffs2/port/../direct/yaffs_osglue.h:24:0,
+                 from ../yaffs2/port/yaffs_osglue.c:13:
+../yaffs2/port/../direct/yportenv.h:42:0: note: this is the location of the previous definition
+ #define DT_UNKNOWN 0
+ ^
+In file included from ../RTT4/include/rtlibc.h:20:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../yaffs2/port/yaffs_osglue.c:21:
+../RTT4/include/libc/libc_dirent.h:11:0: warning: "DT_REG" redefined
+ #define DT_REG               0x01
+ ^
+In file included from ../yaffs2/port/../direct/yaffs_osglue.h:24:0,
+                 from ../yaffs2/port/yaffs_osglue.c:13:
+../yaffs2/port/../direct/yportenv.h:47:0: note: this is the location of the previous definition
+ #define DT_REG  8
+ ^
+In file included from ../RTT4/include/rtlibc.h:20:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../yaffs2/port/yaffs_osglue.c:21:
+../RTT4/include/libc/libc_dirent.h:12:0: warning: "DT_DIR" redefined
+ #define DT_DIR               0x02
+ ^
+In file included from ../yaffs2/port/../direct/yaffs_osglue.h:24:0,
+                 from ../yaffs2/port/yaffs_osglue.c:13:
+../yaffs2/port/../direct/yportenv.h:45:0: note: this is the location of the previous definition
+ #define DT_DIR  4
+ ^
+CC  ../yaffs2/yaffs_allocator.c
+CC  ../yaffs2/yaffs_attribs.c
+CC  ../yaffs2/yaffs_bitmap.c
+CC  ../yaffs2/yaffs_checkptrw.c
+CC  ../yaffs2/yaffs_ecc.c
+CC  ../yaffs2/yaffs_guts.c
+../yaffs2/yaffs_guts.c: In function 'yaffs_check_chunk_erased':
+../yaffs2/yaffs_guts.c:331:6: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+  int result;
+      ^
+../yaffs2/yaffs_guts.c: In function 'yaffs_verify_chunk_written':
+../yaffs2/yaffs_guts.c:359:6: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+  int result;
+      ^
+../yaffs2/yaffs_guts.c: In function 'yaffs_grab_chunk_cache':
+../yaffs2/yaffs_guts.c:1489:6: warning: variable 'pushout' set but not used [-Wunused-but-set-variable]
+  int pushout;
+      ^
+../yaffs2/yaffs_guts.c: In function 'yaffs_check_obj_details_loaded':
+../yaffs2/yaffs_guts.c:3179:6: warning: variable 'alloc_failed' set but not used [-Wunused-but-set-variable]
+  int alloc_failed = 0;
+      ^
+../yaffs2/yaffs_guts.c:3178:6: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+  int result;
+      ^
+../yaffs2/yaffs_guts.c: In function 'yaffs_update_oh':
+../yaffs2/yaffs_guts.c:3285:6: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+  int result = 0;
+      ^
+../yaffs2/yaffs_guts.c: In function 'yaffs_get_obj_name':
+../yaffs2/yaffs_guts.c:4442:7: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+   int result;
+       ^
+CC  ../yaffs2/yaffs_nameval.c
+CC  ../yaffs2/yaffs_nand.c
+CC  ../yaffs2/yaffs_packedtags1.c
+CC  ../yaffs2/yaffs_packedtags2.c
+CC  ../yaffs2/yaffs_summary.c
+CC  ../yaffs2/yaffs_tagscompat.c
+CC  ../yaffs2/yaffs_verify.c
+../yaffs2/yaffs_verify.c: In function 'yaffs_verify_file':
+../yaffs2/yaffs_verify.c:226:6: warning: variable 'actual_depth' set but not used [-Wunused-but-set-variable]
+  int actual_depth;
+      ^
+CC  ../yaffs2/yaffs_yaffs1.c
+../yaffs2/yaffs_yaffs1.c: In function 'yaffs1_scan':
+../yaffs2/yaffs_yaffs1.c:26:6: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+  int result;
+      ^
+CC  ../yaffs2/yaffs_yaffs2.c
+../yaffs2/yaffs_yaffs2.c: In function 'yaffs2_scan_chunk':
+../yaffs2/yaffs_yaffs2.c:953:6: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+  int result;
+      ^
+../yaffs2/yaffs_yaffs2.c: In function 'yaffs2_scan_backwards':
+../yaffs2/yaffs_yaffs2.c:1356:6: warning: variable 'deleted' set but not used [-Wunused-but-set-variable]
+  int deleted;
+      ^
+Linking  tcp_client/tcp_client.exe
+   text	   data	    bss	    dec	    hex	filename
+ 563484	   5800	  72640	 641924	  9cb84	tcp_client/tcp_client.exe
+make.exe": Leaving directory `/c/Users/testriad/Desktop/LoongSonExamples/Chapter08_ImplementationofNetworkTransmission/builds'
+--- summary ---
+experiment       : tcp_client
+built at         : 2026-11-17T10:46:58
+duration         : 124 s
+toolchain        : E:\LoongIDE\mips-2015.05\bin (mips-sde-elf-gcc)
+result           : SUCCESS
+elf              : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\builds\tcp_client\tcp_client.exe (1341240 bytes)
+binary           : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\builds\tcp_client\tcp_client.bin (569288 bytes)
+bin sha256       : 245D5065325B089A808163CEC6277CAD4C3C484346B6F94FEC0060D724136C5A
+build log        : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\results\logs\build_tcp_client.log
+

@@ -1,0 +1,96 @@
+=== Chapter 08 build: tcp_server ===
+started          : 2026-11-17T14:31:04
+experiment macro : TEST_TCP_SERVER = 1
+--- lwip_test.h macro state ---
+#define TEST_TCP_SERVER         1
+#define TEST_TCP_CLIENT         0
+#define TEST_UDP_SERVER         0
+#define TEST_UDP_CLIENT         0
+--- compiler output ---
+make.exe": Entering directory `/c/Users/testriad/Desktop/LoongSonExamples/Chapter08_ImplementationofNetworkTransmission/builds'
+CC  ../lwip_test.c
+CC  ../main.c
+CC  ../tcp_client.c
+CC  ../tcp_server.c
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../tcp_server.c:6:
+../RTT4/include/libc/libc_ioctl.h:24:0: warning: "_IO" redefined
+ #define _IO(a,b)    _IOC(_IOC_NONE,(a),(b),0)
+ ^
+In file included from ../tcp_server.c:4:0:
+../lwIP-1.4.1/include/lwip/sockets.h:244:0: note: this is the location of the previous definition
+ #define _IO(x,y)        (IOC_VOID|((x)<<8)|(y))
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../tcp_server.c:6:
+../RTT4/include/libc/libc_ioctl.h:25:0: warning: "_IOW" redefined
+ #define _IOW(a,b,c) _IOC(_IOC_WRITE,(a),(b),sizeof(c))
+ ^
+In file included from ../tcp_server.c:4:0:
+../lwIP-1.4.1/include/lwip/sockets.h:248:0: note: this is the location of the previous definition
+ #define _IOW(x,y,t)     (IOC_IN|(((long)sizeof(t)&IOCPARM_MASK)<<16)|((x)<<8)|(y))
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../tcp_server.c:6:
+../RTT4/include/libc/libc_ioctl.h:26:0: warning: "_IOR" redefined
+ #define _IOR(a,b,c) _IOC(_IOC_READ,(a),(b),sizeof(c))
+ ^
+In file included from ../tcp_server.c:4:0:
+../lwIP-1.4.1/include/lwip/sockets.h:246:0: note: this is the location of the previous definition
+ #define _IOR(x,y,t)     (IOC_OUT|(((long)sizeof(t)&IOCPARM_MASK)<<16)|((x)<<8)|(y))
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../tcp_server.c:6:
+../RTT4/include/libc/libc_ioctl.h:29:0: warning: "FIONREAD" redefined
+ #define FIONREAD    _IOR('f', 127, int) /* get # bytes to read */
+ ^
+In file included from ../tcp_server.c:4:0:
+../lwIP-1.4.1/include/lwip/sockets.h:252:0: note: this is the location of the previous definition
+ #define FIONREAD    _IOR('f', 127, unsigned long) /* get # bytes to read */
+ ^
+In file included from ../RTT4/include/rtlibc.h:19:0,
+                 from ../RTT4/include/rtdef.h:1089,
+                 from ../RTT4/include/rtthread.h:24,
+                 from ../lwIP-1.4.1/port/include/arch/sys_arch.h:18,
+                 from ../lwIP-1.4.1/include/lwip/sys.h:86,
+                 from ../tcp_server.c:6:
+../RTT4/include/libc/libc_ioctl.h:30:0: warning: "FIONBIO" redefined
+ #define FIONBIO     _IOW('f', 126, int) /* set/clear non-blocking i/o */
+ ^
+In file included from ../tcp_server.c:4:0:
+../lwIP-1.4.1/include/lwip/sockets.h:255:0: note: this is the location of the previous definition
+ #define FIONBIO     _IOW('f', 126, unsigned long) /* set/clear non-blocking i/o */
+ ^
+CC  ../udp_client.c
+CC  ../udp_server.c
+Linking  tcp_server/tcp_server.exe
+   text	   data	    bss	    dec	    hex	filename
+ 563676	   5800	  72640	 642116	  9cc44	tcp_server/tcp_server.exe
+make.exe": Leaving directory `/c/Users/testriad/Desktop/LoongSonExamples/Chapter08_ImplementationofNetworkTransmission/builds'
+--- summary ---
+experiment       : tcp_server
+built at         : 2026-11-17T14:31:29
+duration         : 25 s
+toolchain        : E:\LoongIDE\mips-2015.05\bin (mips-sde-elf-gcc)
+result           : SUCCESS
+elf              : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\builds\tcp_server\tcp_server.exe (1341456 bytes)
+binary           : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\builds\tcp_server\tcp_server.bin (569480 bytes)
+bin sha256       : ECD270380F875E6F0CA1BCCAFDDD42BBA407CD3A03F114C40493969B6BD17DA3
+build log        : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\results\logs\build_tcp_server.log
+

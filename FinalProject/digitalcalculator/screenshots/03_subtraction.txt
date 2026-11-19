@@ -1,0 +1,26 @@
+Welcome to the Digital Calculator
+
+==============================
+      DIGITAL CALCULATOR
+==============================
+  1. Addition
+  2. Subtraction
+  3. Multiplication
+  4. Division
+  5. Exit
+------------------------------
+Enter your choice: 2
+Enter first number : 10
+Enter second number: 5
+Result: 5
+
+==============================
+      DIGITAL CALCULATOR
+==============================
+  1. Addition
+  2. Subtraction
+  3. Multiplication
+  4. Division
+  5. Exit
+------------------------------
+Enter your choice:

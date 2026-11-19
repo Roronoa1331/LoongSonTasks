@@ -1,0 +1,64 @@
+﻿=== HOST SIMULATION: customer_num=5, waiting chairs=5 ===
+
+
+
+Welcome to RT-Thread.
+
+
+
+create semaphore barber done.  The value of barber = 0
+create semaphore customers done. The value of customers = 0
+create mutex is sucessful. 
+barber thread  startup. 
+customers 1 thread  startup. 
+customers 2 thread  startup. 
+customers 3 thread  startup. 
+customers 4 thread  startup. 
+customers 5 thread  startup. 
+freeseats=4
+customers 1 is waitting to cut hair.
+freeseats=3
+customers 2 is waitting to cut hair.
+freeseats=2
+customers 3 is waitting to cut hair.
+freeseats=1
+customers 4 is waitting to cut hair.
+freeseats=0
+customers 5 is waitting to cut hair.
+barber find customer 0 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 1 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 2 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 3 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 4 .
+barber begin to cut hair.
+barber finish cut hair.
+
+
+==== HOST SIMULATION REPORT ====
+customer threads requested : 5
+waiting chairs             : 5
+simulated time             : 250 ms
+context switches           : 33
+livelock (budget exceeded) : no
+
+threads:
+  main      prio 10  finished
+  barber    prio 10  semaphore 'cust_sem'
+  customer  prio  5  finished
+  customer  prio  6  finished
+  customer  prio  7  finished
+  customer  prio  8  finished
+  customer  prio  9  finished
+
+threads still blocked      : 1
+
+VERDICT: PASS
+

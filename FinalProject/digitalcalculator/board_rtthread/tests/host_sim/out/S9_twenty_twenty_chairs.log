@@ -1,0 +1,169 @@
+﻿=== HOST SIMULATION: customer_num=20, waiting chairs=20 ===
+
+
+
+Welcome to RT-Thread.
+
+
+
+create semaphore barber done.  The value of barber = 0
+create semaphore customers done. The value of customers = 0
+create mutex is sucessful. 
+barber thread  startup. 
+customers 1 thread  startup. 
+customers 2 thread  startup. 
+customers 3 thread  startup. 
+customers 4 thread  startup. 
+customers 5 thread  startup. 
+customers 6 thread  startup. 
+customers 7 thread  startup. 
+customers 8 thread  startup. 
+customers 9 thread  startup. 
+customers 10 thread  startup. 
+customers 11 thread  startup. 
+customers 12 thread  startup. 
+customers 13 thread  startup. 
+customers 14 thread  startup. 
+customers 15 thread  startup. 
+customers 16 thread  startup. 
+customers 17 thread  startup. 
+customers 18 thread  startup. 
+customers 19 thread  startup. 
+customers 20 thread  startup. 
+freeseats=19
+customers 1 is waitting to cut hair.
+freeseats=18
+customers 2 is waitting to cut hair.
+freeseats=17
+customers 3 is waitting to cut hair.
+freeseats=16
+customers 4 is waitting to cut hair.
+freeseats=15
+customers 5 is waitting to cut hair.
+barber find customer 0 .
+barber begin to cut hair.
+freeseats=15
+customers 6 is waitting to cut hair.
+freeseats=14
+customers 7 is waitting to cut hair.
+freeseats=13
+customers 8 is waitting to cut hair.
+freeseats=12
+customers 9 is waitting to cut hair.
+freeseats=11
+customers 10 is waitting to cut hair.
+freeseats=10
+customers 11 is waitting to cut hair.
+freeseats=9
+customers 12 is waitting to cut hair.
+freeseats=8
+customers 13 is waitting to cut hair.
+freeseats=7
+customers 14 is waitting to cut hair.
+freeseats=6
+customers 15 is waitting to cut hair.
+freeseats=5
+customers 16 is waitting to cut hair.
+freeseats=4
+customers 17 is waitting to cut hair.
+freeseats=3
+customers 18 is waitting to cut hair.
+freeseats=2
+customers 19 is waitting to cut hair.
+freeseats=1
+customers 20 is waitting to cut hair.
+barber finish cut hair.
+barber find customer 1 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 2 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 3 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 4 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 5 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 6 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 7 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 8 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 9 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 10 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 11 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 12 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 13 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 14 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 15 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 16 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 17 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 18 .
+barber begin to cut hair.
+barber finish cut hair.
+barber find customer 19 .
+barber begin to cut hair.
+barber finish cut hair.
+
+
+==== HOST SIMULATION REPORT ====
+customer threads requested : 20
+waiting chairs             : 20
+simulated time             : 850 ms
+context switches           : 93
+livelock (budget exceeded) : no
+
+threads:
+  main      prio 10  finished
+  barber    prio 10  semaphore 'cust_sem'
+  customer  prio  5  finished
+  customer  prio  6  finished
+  customer  prio  7  finished
+  customer  prio  8  finished
+  customer  prio  9  finished
+  customer  prio 10  finished
+  customer  prio 11  finished
+  customer  prio 12  finished
+  customer  prio 13  finished
+  customer  prio 14  finished
+  customer  prio 15  finished
+  customer  prio 16  finished
+  customer  prio 17  finished
+  customer  prio 18  finished
+  customer  prio 19  finished
+  customer  prio 20  finished
+  customer  prio 21  finished
+  customer  prio 22  finished
+  customer  prio 23  finished
+  customer  prio 24  finished
+
+threads still blocked      : 1
+
+VERDICT: PASS
+

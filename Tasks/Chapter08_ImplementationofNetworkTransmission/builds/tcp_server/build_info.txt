@@ -1,0 +1,9 @@
+experiment       : tcp_server
+built at         : 2026-11-17T14:31:29
+duration         : 25 s
+toolchain        : E:\LoongIDE\mips-2015.05\bin (mips-sde-elf-gcc)
+result           : SUCCESS
+elf              : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\builds\tcp_server\tcp_server.exe (1341456 bytes)
+binary           : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\builds\tcp_server\tcp_server.bin (569480 bytes)
+bin sha256       : ECD270380F875E6F0CA1BCCAFDDD42BBA407CD3A03F114C40493969B6BD17DA3
+build log        : C:\Users\testriad\Desktop\LoongSonExamples\Chapter08_ImplementationofNetworkTransmission\results\logs\build_tcp_server.log

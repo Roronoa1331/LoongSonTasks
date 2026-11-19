@@ -1,0 +1,22 @@
+# Build output
+Build/
+build/
+build_mips/
+builds/*/obj/
+_obj/
+obj/
+*.o
+*.obj
+*.d
+*.exe
+*.bin
+*.elf
+*.hex
+*.img
+*.map
+
+# Editors / OS
+.vs/
+.vscode/
+Thumbs.db
+desktop.ini

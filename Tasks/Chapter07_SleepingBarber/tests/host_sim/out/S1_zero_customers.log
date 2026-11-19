@@ -1,0 +1,29 @@
+﻿=== HOST SIMULATION: customer_num=0, waiting chairs=3 ===
+
+
+
+Welcome to RT-Thread.
+
+
+
+create semaphore barber done.  The value of barber = 0
+create semaphore customers done. The value of customers = 0
+create mutex is sucessful. 
+barber thread  startup. 
+
+
+==== HOST SIMULATION REPORT ====
+customer threads requested : 0
+waiting chairs             : 3
+simulated time             : 0 ms
+context switches           : 2
+livelock (budget exceeded) : no
+
+threads:
+  main      prio 10  finished
+  barber    prio 10  semaphore 'cust_sem'
+
+threads still blocked      : 1
+
+VERDICT: PASS
+
